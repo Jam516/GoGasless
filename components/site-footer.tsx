@@ -5,7 +5,7 @@ export function SiteFooter() {
                 <div className="flex flex-row">
 
                     <p className="text-center text-base text-muted-foreground">
-                        powered by ???
+                        powered by Base
                     </p>
                     {" "}
                     {/* <a
