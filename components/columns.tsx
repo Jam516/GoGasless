@@ -10,22 +10,58 @@ import { categories } from "@/components/categories";
 export type App = {
     PROJECT: string
     LOGO: string
-    PAYMASTER_VOLUME: number
-    ACTIVE_ACCOUNTS: number
-    GASLESS_TXNS: number
-    RN: number
+    PAYMASTER_VOLUME_7D: number
+    ACTIVE_ACCOUNTS_7D: number
+    GASLESS_TXNS_7D: number
+    RN_7D: number
+    PAYMASTER_VOLUME_30D: number
+    ACTIVE_ACCOUNTS_30D: number
+    GASLESS_TXNS_30D: number
+    RN_30D: number
+    PAYMASTER_VOLUME_90D: number
+    ACTIVE_ACCOUNTS_90D: number
+    GASLESS_TXNS_90D: number
+    RN_90D: number
     WEBSITE: string | null
     CATEGORY: string
 }
 
 export const columns: ColumnDef<App>[] = [
     {
-        accessorKey: "RN",
+        accessorKey: "RN_7D",
         header: ({ column }) => (
             <DataTableColumnHeader column={column} title=" " />
         ),
-        enableSorting: false,
-        enableHiding: false,
+        cell: ({ row }) => {
+            const displayValue = row.getValue("RN_7D");
+            return (
+                displayValue
+            )
+        },
+    },
+    {
+        accessorKey: "RN_30D",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title=" " />
+        ),
+        cell: ({ row }) => {
+            const displayValue = row.getValue("RN_30D");
+            return (
+                displayValue
+            )
+        },
+    },
+    {
+        accessorKey: "RN_90D",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title=" " />
+        ),
+        cell: ({ row }) => {
+            const displayValue = row.getValue("RN_90D");
+            return (
+                displayValue
+            )
+        },
     },
     {
         accessorKey: "LOGO",
@@ -49,20 +85,20 @@ export const columns: ColumnDef<App>[] = [
     {
         accessorKey: "PROJECT",
         header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="PROJECT" />
+            <DataTableColumnHeader column={column} title=" " />
         ),
         cell: ({ row }) => {
             const project = row.getValue("PROJECT") as string;
             const website = row.original.WEBSITE;
 
             return (
-                <div>
+                <div className="font-bold  ">
                     {website ? (
                         <a
                             href={website}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:underline text-blue-600"
+                            className=" hover:underline text-blue-600"
                         >
                             {project}
                         </a>
@@ -76,45 +112,135 @@ export const columns: ColumnDef<App>[] = [
         enableHiding: false,
     },
     {
-        accessorKey: "PAYMASTER_VOLUME",
+        accessorKey: "ACTIVE_ACCOUNTS_7D",
         header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="GAS ABSTRACTED" />
+            <DataTableColumnHeader column={column} title="7D ACTIVE ACOUNTS" />
         ),
         cell: ({ row }) => {
-            const amount = parseFloat(row.getValue("PAYMASTER_VOLUME"));
+            const amount = parseFloat(row.getValue("ACTIVE_ACCOUNTS_7D"));
             const displayValue = Math.round(amount).toLocaleString();
             return (
-                <div>
-                    ${displayValue}
-                </div>
-            )
-        },
-    },
-    {
-        accessorKey: "ACTIVE_ACCOUNTS",
-        header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="ACTIVE ACOUNTS" />
-        ),
-        cell: ({ row }) => {
-            const amount = parseFloat(row.getValue("ACTIVE_ACCOUNTS"));
-            const displayValue = Math.round(amount).toLocaleString();
-            return (
-                <div>
+                <div className=" ">
                     {displayValue}
                 </div>
             )
         },
     },
     {
-        accessorKey: "GASLESS_TXNS",
+        accessorKey: "PAYMASTER_VOLUME_7D",
         header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="GASLESS TXNS" />
+            <DataTableColumnHeader column={column} title="7D GAS ABSTRACTED" />
         ),
         cell: ({ row }) => {
-            const amount = parseFloat(row.getValue("GASLESS_TXNS"));
+            const amount = parseFloat(row.getValue("PAYMASTER_VOLUME_7D"));
             const displayValue = Math.round(amount).toLocaleString();
             return (
-                <div>
+                <div className=" ">
+                    ${displayValue}
+                </div>
+            )
+        },
+    },
+    {
+        accessorKey: "GASLESS_TXNS_7D",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="7D GASLESS TXNS" />
+        ),
+        cell: ({ row }) => {
+            const amount = parseFloat(row.getValue("GASLESS_TXNS_7D"));
+            const displayValue = Math.round(amount).toLocaleString();
+            return (
+                <div className=" ">
+                    {displayValue}
+                </div>
+            )
+        },
+    },
+    {
+        accessorKey: "ACTIVE_ACCOUNTS_30D",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="30D ACTIVE ACOUNTS" />
+        ),
+        cell: ({ row }) => {
+            const amount = parseFloat(row.getValue("ACTIVE_ACCOUNTS_30D"));
+            const displayValue = Math.round(amount).toLocaleString();
+            return (
+                <div className=" ">
+                    {displayValue}
+                </div>
+            )
+        },
+    },
+    {
+        accessorKey: "PAYMASTER_VOLUME_30D",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="30D GAS ABSTRACTED" />
+        ),
+        cell: ({ row }) => {
+            const amount = parseFloat(row.getValue("PAYMASTER_VOLUME_30D"));
+            const displayValue = Math.round(amount).toLocaleString();
+            return (
+                <div className=" ">
+                    ${displayValue}
+                </div>
+            )
+        },
+    },
+    {
+        accessorKey: "GASLESS_TXNS_30D",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="30D GASLESS TXNS" />
+        ),
+        cell: ({ row }) => {
+            const amount = parseFloat(row.getValue("GASLESS_TXNS_30D"));
+            const displayValue = Math.round(amount).toLocaleString();
+            return (
+                <div className=" ">
+                    {displayValue}
+                </div>
+            )
+        },
+    },
+    {
+        accessorKey: "ACTIVE_ACCOUNTS_90D",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="90D ACTIVE ACOUNTS" />
+        ),
+        cell: ({ row }) => {
+            const amount = parseFloat(row.getValue("ACTIVE_ACCOUNTS_90D"));
+            const displayValue = Math.round(amount).toLocaleString();
+            return (
+                <div className=" ">
+                    {displayValue}
+                </div>
+            )
+        },
+    },
+    {
+        accessorKey: "PAYMASTER_VOLUME_90D",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="90D GAS ABSTRACTED" />
+        ),
+        cell: ({ row }) => {
+            const amount = parseFloat(row.getValue("PAYMASTER_VOLUME_90D"));
+            const displayValue = Math.round(amount).toLocaleString();
+            return (
+                <div className=" ">
+                    ${displayValue}
+                </div>
+            )
+        },
+    },
+    {
+        accessorKey: "GASLESS_TXNS_90D",
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} title="90D GASLESS TXNS" />
+        ),
+        cell: ({ row }) => {
+            const amount = parseFloat(row.getValue("GASLESS_TXNS_90D"));
+            const displayValue = Math.round(amount).toLocaleString();
+            return (
+                <div className=" ">
                     {displayValue}
                 </div>
             )

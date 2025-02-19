@@ -1,17 +1,39 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Separator } from "@/components/ui/separator"
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-// // use sans for reading text
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
+// use sans for reading text
+const interSans = Inter({
+  variable: "--font-inter-sans",
+  subsets: ["latin"],
+});
 
-// // use mono for titles
+// use mono for titles
+const berkeleyMono = localFont({
+  src: [
+    {
+      path: '../public/fonts/BerkeleyMono-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/BerkeleyMono-SemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/BerkeleyMono-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-berkeley-mono',
+});
+
 // const geistMono = Geist_Mono({
 //   variable: "--font-geist-mono",
 //   subsets: ["latin"],
@@ -65,13 +87,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        {/* put in body = className={`${geistSans.variable} ${geistMono.variable} antialiased`} */}
+      <body className={`${interSans.variable} ${berkeleyMono.variable} antialiased`}>
+        {/* put in body = className={`${InterSans.variable} ${geistMono.variable} antialiased`} */}
         <div className="relative flex min-h-screen flex-col px-[10%]">
           <SiteHeader />
           <Separator />
           {children}
-          <Separator />
+          <Separator className="bg-black/30" />
           <SiteFooter />
         </div>
       </body>

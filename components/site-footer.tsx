@@ -5,15 +5,15 @@ export function SiteFooter() {
                 <div className="flex flex-row">
 
                     <p className="text-center text-base text-muted-foreground">
-                        powered by
+                        powered by ???
                     </p>
                     {" "}
-                    <a
+                    {/* <a
                         href="https://www.allium.so/"
                         target="_blank"
                     >
                         <img src="/allium-logo.png" alt="Allium Logo" className="h-[20px]" />
-                    </a>
+                    </a> */}
                 </div>
                 <div className="flex flex-col">
                     <p className="mb-4 text-center text-base text-muted-foreground">
