@@ -114,7 +114,7 @@ export const columns: ColumnDef<App>[] = [
     {
         accessorKey: "ACTIVE_ACCOUNTS_7D",
         header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="7D ACTIVE ACOUNTS" />
+            <DataTableColumnHeader column={column} title="7D ACTIVE ACCOUNTS" />
         ),
         cell: ({ row }) => {
             const amount = parseFloat(row.getValue("ACTIVE_ACCOUNTS_7D"));
