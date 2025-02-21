@@ -1,11 +1,15 @@
 import {
-    StackIcon,
     ShadowOuterIcon,
     ComponentInstanceIcon,
     MixIcon,
     AvatarIcon,
     FileTextIcon,
-    ImageIcon
+    ImageIcon,
+    EnvelopeClosedIcon,
+    BarChartIcon,
+    PaperPlaneIcon,
+    WidthIcon,
+    EnterIcon
 } from "@radix-ui/react-icons"
 
 export const categories = [
@@ -27,7 +31,7 @@ export const categories = [
     {
         value: "messaging",
         label: "Messaging",
-        icon: StackIcon,
+        icon: EnvelopeClosedIcon,
     },
     {
         value: "prediction market",
@@ -37,7 +41,22 @@ export const categories = [
     {
         value: "dex aggregator",
         label: "DEX Aggregator",
-        icon: FileTextIcon,
+        icon: BarChartIcon,
+    },
+    {
+        value: "bridge",
+        label: "Bridge",
+        icon: WidthIcon,
+    },
+    {
+        value: "payments",
+        label: "Payments",
+        icon: PaperPlaneIcon,
+    },
+    {
+        value: "token claim",
+        label: "Token Claim",
+        icon: EnterIcon,
     },
     {
         value: "nft",

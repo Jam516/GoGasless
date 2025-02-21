@@ -114,7 +114,7 @@ export const columns: ColumnDef<App>[] = [
     {
         accessorKey: "ACTIVE_ACCOUNTS_7D",
         header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="7D ACTIVE ACCOUNTS" />
+            <DataTableColumnHeader column={column} title="7D ACTIVE SMART WALLETS" />
         ),
         cell: ({ row }) => {
             const amount = parseFloat(row.getValue("ACTIVE_ACCOUNTS_7D"));
@@ -159,7 +159,7 @@ export const columns: ColumnDef<App>[] = [
     {
         accessorKey: "ACTIVE_ACCOUNTS_30D",
         header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="30D ACTIVE ACOUNTS" />
+            <DataTableColumnHeader column={column} title="30D ACTIVE SMART WALLETS" />
         ),
         cell: ({ row }) => {
             const amount = parseFloat(row.getValue("ACTIVE_ACCOUNTS_30D"));
@@ -204,7 +204,7 @@ export const columns: ColumnDef<App>[] = [
     {
         accessorKey: "ACTIVE_ACCOUNTS_90D",
         header: ({ column }) => (
-            <DataTableColumnHeader column={column} title="90D ACTIVE ACOUNTS" />
+            <DataTableColumnHeader column={column} title="90D ACTIVE SMART WALLETS" />
         ),
         cell: ({ row }) => {
             const amount = parseFloat(row.getValue("ACTIVE_ACCOUNTS_90D"));
