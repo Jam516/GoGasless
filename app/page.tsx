@@ -17,7 +17,7 @@ function AboutBlock() {
       </div>
       <div className="flex flex-col items-left">
         <h2 className="font-bold ">What is a gasless transaction?</h2>
-        <p>When a smart wallet user makes a &quot;gasless&quot; transaction on an app they do not need to pay gas fees with ETH. The app developer uses a
+        <p>When a smart wallet user makes a &quot;gasless&quot; transaction on an app the user does not need to pay gas fees with ETH. The app developer uses a
           {" "}
           <a
             href="https://www.coinbase.com/en-gb/developer-platform/products/paymaster"
@@ -65,7 +65,8 @@ export default async function Home() {
               className="underline underline-offset-4"
             >
               paymasters
-            </a> to give your users a gasless experience.</p>
+            </a> to give your users a gasless experience.
+          </p>
         </div>
         <div className="flex items-center">
           <DataTable columns={columns} data={data.leaderboard} page_length={25} />
