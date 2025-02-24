@@ -25,9 +25,9 @@ const TIME_PERIOD_COLUMNS = {
 }
 
 const PERIOD_TO_SORT_COLUMN = {
-    "7d": "RN_7D",
-    "30d": "RN_30D",
-    "90d": "RN_90D",
+    "7d": "PAYMASTER_VOLUME_7D",
+    "30d": "PAYMASTER_VOLUME_30D",
+    "90d": "PAYMASTER_VOLUME_90D",
 }
 
 export function DataTableTimePeriod<TData>({
