@@ -9,7 +9,10 @@ import {
     BarChartIcon,
     PaperPlaneIcon,
     WidthIcon,
-    EnterIcon
+    EnterIcon,
+    DoubleArrowRightIcon,
+    StackIcon,
+    ValueNoneIcon
 } from "@radix-ui/react-icons"
 
 export const categories = [
@@ -42,6 +45,26 @@ export const categories = [
         value: "dex aggregator",
         label: "DEX Aggregator",
         icon: BarChartIcon,
+    },
+    {
+        value: "dex",
+        label: "DEX",
+        icon: BarChartIcon,
+    },
+    {
+        value: "derivatives",
+        label: "DEX",
+        icon: DoubleArrowRightIcon,
+    },
+    {
+        value: "plugin",
+        label: "Plugin",
+        icon: StackIcon,
+    },
+    {
+        value: "options",
+        label: "Options",
+        icon: ValueNoneIcon,
     },
     {
         value: "bridge",
