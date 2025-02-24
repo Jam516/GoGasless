@@ -12,7 +12,8 @@ import {
     EnterIcon,
     DoubleArrowRightIcon,
     StackIcon,
-    ValueNoneIcon
+    ValueNoneIcon,
+    ArrowRightIcon
 } from "@radix-ui/react-icons"
 
 export const categories = [
@@ -72,9 +73,14 @@ export const categories = [
         icon: WidthIcon,
     },
     {
+        value: "telegram wallet",
+        label: "Telegram Wallet",
+        icon: PaperPlaneIcon,
+    },
+    {
         value: "payments",
         label: "Payments",
-        icon: PaperPlaneIcon,
+        icon: ArrowRightIcon,
     },
     {
         value: "token claim",
