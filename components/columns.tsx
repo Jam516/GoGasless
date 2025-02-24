@@ -133,10 +133,10 @@ export const columns: ColumnDef<App>[] = [
         ),
         cell: ({ row }) => {
             const amount = parseFloat(row.getValue("PAYMASTER_VOLUME_7D"));
-            const displayValue = Math.round(amount).toLocaleString();
+            // const displayValue = Math.round(amount).toLocaleString();
             return (
                 <div className=" ">
-                    ${displayValue}
+                    {amount < 1 ? <>&lt;$1</> : `$${Math.round(amount).toLocaleString()}`}
                 </div>
             )
         },
@@ -178,10 +178,10 @@ export const columns: ColumnDef<App>[] = [
         ),
         cell: ({ row }) => {
             const amount = parseFloat(row.getValue("PAYMASTER_VOLUME_30D"));
-            const displayValue = Math.round(amount).toLocaleString();
+            // const displayValue = Math.round(amount).toLocaleString();
             return (
                 <div className=" ">
-                    ${displayValue}
+                    {amount < 1 ? <>&lt;$1</> : `$${Math.round(amount).toLocaleString()}`}
                 </div>
             )
         },
@@ -223,10 +223,10 @@ export const columns: ColumnDef<App>[] = [
         ),
         cell: ({ row }) => {
             const amount = parseFloat(row.getValue("PAYMASTER_VOLUME_90D"));
-            const displayValue = Math.round(amount).toLocaleString();
+            // const displayValue = Math.round(amount).toLocaleString();
             return (
                 <div className=" ">
-                    ${displayValue}
+                    {amount < 1 ? <>&lt;$1</> : `$${Math.round(amount).toLocaleString()}`}
                 </div>
             )
         },
