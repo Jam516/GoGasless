@@ -1,7 +1,7 @@
 import { Separator } from "@/components/ui/separator";
 import { columns } from "@/components/columns";
 import { DataTable } from "@/components/data-table";
-import { MobileBlocker } from "@/components/mobile-blocker";
+// import { MobileBlocker } from "@/components/mobile-blocker";
 import { getHomeData } from "@/app/actions/getHomeData";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
