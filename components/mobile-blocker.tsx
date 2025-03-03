@@ -7,8 +7,8 @@ import {
     AlertDialogDescription,
     AlertDialogHeader,
     AlertDialogTitle,
-    AlertDialogFooter,
-    AlertDialogCancel,
+    // AlertDialogFooter,
+    // AlertDialogCancel,
 } from "@/components/ui/alert-dialog"
 
 export function MobileBlocker() {
@@ -39,9 +39,9 @@ export function MobileBlocker() {
                             {message}
                         </AlertDialogDescription>
                     </AlertDialogHeader>
-                    <AlertDialogFooter>
+                    {/* <AlertDialogFooter>
                         <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    </AlertDialogFooter>
+                    </AlertDialogFooter> */}
                 </AlertDialogContent>
             </AlertDialog>
         </div>

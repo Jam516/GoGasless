@@ -3,6 +3,7 @@ import { columns } from "@/components/columns";
 import { DataTable } from "@/components/data-table";
 import { MobileBlocker } from "@/components/mobile-blocker";
 import { getHomeData } from "@/app/actions/getHomeData";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export default async function Home(props: { params: Promise<{ slug: string[] }> }) {
   const params = await props.params;
@@ -13,7 +14,7 @@ export default async function Home(props: { params: Promise<{ slug: string[] }> 
     <div className="flex flex-col mt-10 mb-10 font-[family-name:var(--font-inter-sans)]">
       <main className="flex flex-col items-center space-y-12">
         <div className="flex flex-col gap-4 items-center md:w-1/2">
-          <MobileBlocker />
+          {/* <MobileBlocker /> */}
           <h1 className="text-xl md:text-4xl font-bold leading-none tracking-tight text-center">Discover Gasless Apps</h1>
           <p className="text-sm md:text-base font-semibold text-muted-foreground text-center">Gas fees are the biggest barrier to onboarding new crypto users. Use {" "}
             <a
@@ -27,7 +28,20 @@ export default async function Home(props: { params: Promise<{ slug: string[] }> 
           </p>
         </div>
         <div className="flex items-center">
-          <DataTable columns={columns} data={data.leaderboard} page_length={25} />
+
+          <div className="block md:hidden w-full">
+            <ScrollArea className="w-full">
+              <ScrollBar orientation="horizontal" />
+              <div className="w-max">
+                <DataTable columns={columns} data={data.leaderboard} page_length={25} />
+              </div>
+            </ScrollArea>
+          </div>
+
+          <div className="hidden md:block">
+            <DataTable columns={columns} data={data.leaderboard} page_length={25} />
+          </div>
+
         </div>
         <Separator />
         <AboutBlock />
