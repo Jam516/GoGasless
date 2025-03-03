@@ -12,8 +12,8 @@ export default async function Home(props: { params: Promise<{ slug: string[] }> 
   return (
     <div className="flex flex-col mt-10 mb-10 font-[family-name:var(--font-inter-sans)]">
       <main className="flex flex-col items-center space-y-12">
-        <MobileBlocker />
         <div className="flex flex-col gap-4 items-center md:w-1/2">
+          <MobileBlocker />
           <h1 className="text-xl md:text-4xl font-bold leading-none tracking-tight text-center">Discover Gasless Apps</h1>
           <p className="text-sm md:text-base font-semibold text-muted-foreground text-center">Gas fees are the biggest barrier to onboarding new crypto users. Use {" "}
             <a

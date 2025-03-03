@@ -7,7 +7,8 @@ import {
     AlertDialogDescription,
     AlertDialogHeader,
     AlertDialogTitle,
-    AlertDialogTrigger,
+    AlertDialogFooter,
+    AlertDialogCancel,
 } from "@/components/ui/alert-dialog"
 
 export function MobileBlocker() {
@@ -31,7 +32,6 @@ export function MobileBlocker() {
     return showDialog ? (
         <div>
             <AlertDialog open={true}>
-                <AlertDialogTrigger>Open</AlertDialogTrigger>
                 <AlertDialogContent>
                     <AlertDialogHeader>
                         <AlertDialogTitle>{headerMessage}</AlertDialogTitle>
@@ -39,6 +39,9 @@ export function MobileBlocker() {
                             {message}
                         </AlertDialogDescription>
                     </AlertDialogHeader>
+                    <AlertDialogFooter>
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    </AlertDialogFooter>
                 </AlertDialogContent>
             </AlertDialog>
         </div>
