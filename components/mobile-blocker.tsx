@@ -29,7 +29,7 @@ export function MobileBlocker() {
     }, []);
 
     return showDialog ? (
-        <div className='min-h-screen'>
+        <div>
             <AlertDialog open={true}>
                 <AlertDialogTrigger>Open</AlertDialogTrigger>
                 <AlertDialogContent>

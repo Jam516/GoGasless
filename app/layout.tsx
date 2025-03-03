@@ -89,7 +89,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${interSans.variable} ${berkeleyMono.variable} antialiased`}>
         {/* put in body = className={`${InterSans.variable} ${geistMono.variable} antialiased`} */}
-        <div className="relative flex min-h-screen flex-col px-[10%]">
+        <div className="relative flex min-h-screen flex-col px-[2%] md:px-[10%]">
           <SiteHeader />
           <Separator />
           {children}
