@@ -4,7 +4,8 @@ import { DataTable } from "@/components/data-table";
 import { MobileBlocker } from "@/components/mobile-blocker";
 import { getHomeData } from "@/app/actions/getHomeData";
 
-export default async function Home({ params }: { params: { slug: string[] } }) {
+export default async function Home(props: { params: Promise<{ slug: string[] }> }) {
+  const params = await props.params;
   const chain = params.slug[0];
   const data = await getHomeData({ chain });
 
