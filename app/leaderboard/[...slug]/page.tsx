@@ -47,7 +47,13 @@ function AboutBlock() {
   )
 }
 
-export default async function Home({ params }: { params: { slug: string[] } }) {
+type LeaderboardPageProps = {
+  params: {
+    slug: string[]
+  }
+}
+
+export default async function Home({ params }: LeaderboardPageProps) {
   const chain = params.slug[0];
   const data = await getHomeData({ chain });
 
