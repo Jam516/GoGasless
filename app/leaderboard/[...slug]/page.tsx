@@ -49,8 +49,9 @@ function AboutBlock() {
 
 interface HomeProps {
   params: {
-    slug: string[];
-  };
+    slug: string[]
+  },
+  searchParams?: { [key: string]: string | string[] | undefined }
 }
 
 export default async function Home({ params }: HomeProps) {
