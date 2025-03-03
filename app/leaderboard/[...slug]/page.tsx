@@ -47,14 +47,7 @@ function AboutBlock() {
   )
 }
 
-interface HomeProps {
-  params: {
-    slug: string[]
-  },
-  searchParams?: { [key: string]: string | string[] | undefined }
-}
-
-export default async function Home({ params }: HomeProps) {
+export default async function Home({ params }: { params: { slug: string[] } }) {
   const chain = params.slug[0];
   const data = await getHomeData({ chain });
 
