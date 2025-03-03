@@ -47,9 +47,9 @@ function AboutBlock() {
   )
 }
 
-export default async function Home() {
-  const timeframe = 'month'
-  const data = await getHomeData({ timeframe });
+export default async function Home({ params }: { params: { slug: string[] } }) {
+  const chain = params.slug[0];
+  const data = await getHomeData({ chain });
 
   return (
     <div className="flex flex-col mt-10 mb-10 font-[family-name:var(--font-inter-sans)]">

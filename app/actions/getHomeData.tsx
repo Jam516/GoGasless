@@ -28,13 +28,13 @@ interface HomeData {
 }
 
 interface HomeDataParams {
-    timeframe: string;
+    chain: string;
 }
 
 
-export async function getHomeData({ timeframe }: HomeDataParams): Promise<HomeData> {
+export async function getHomeData({ chain }: HomeDataParams): Promise<HomeData> {
 
-    const response = await fetch(`https://gogasless-api.onrender.com/home?timeframe=${timeframe}`);
+    const response = await fetch(`https://gogasless-api.onrender.com/home?chain=${chain}`);
     if (!response.ok) {
         throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
     }

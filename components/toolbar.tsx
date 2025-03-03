@@ -5,7 +5,7 @@ import { Table } from "@tanstack/react-table"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { DataTableViewOptions } from "@/components/view-options"
+import { ChainSelector } from "@/components/chain-selector"
 
 import { categories } from "@/components/categories"
 import { DataTableFacetedFilter } from "@/components/faceted-filter"
@@ -54,7 +54,8 @@ export function DataTableToolbar<TData>({
                     </Button>
                 )}
                 <DataTableTimePeriod table={table} setSorting={setSorting} />
-                <DataTableViewOptions table={table} />
+                <ChainSelector />
+                {/* <DataTableViewOptions table={table} /> */}
 
             </div>
 

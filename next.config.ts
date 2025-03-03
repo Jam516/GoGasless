@@ -5,6 +5,15 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['tspekraxapsoevhxjafh.supabase.co'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/leaderboard/all',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 export default nextConfig;
