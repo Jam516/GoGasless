@@ -3,7 +3,7 @@ import { columns } from "@/components/columns";
 import { DataTable } from "@/components/data-table";
 // import { MobileBlocker } from "@/components/mobile-blocker";
 import { getHomeData } from "@/app/actions/getHomeData";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+// import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export default async function Home(props: { params: Promise<{ slug: string[] }> }) {
   const params = await props.params;
@@ -27,19 +27,19 @@ export default async function Home(props: { params: Promise<{ slug: string[] }> 
             </a> to give your users a gasless experience.
           </p>
         </div>
-        <div className="flex items-center">
-
-          <div className="block md:hidden w-full">
-            <ScrollArea className="w-full">
-              <ScrollBar orientation="horizontal" />
-              <div className="w-max">
-                <DataTable columns={columns} data={data.leaderboard} page_length={25} />
-              </div>
-            </ScrollArea>
-          </div>
+        <div className="flex flex-col items-center">
 
           <div className="hidden md:block">
             <DataTable columns={columns} data={data.leaderboard} page_length={25} />
+          </div>
+
+          <div className="block md:hidden w-full">
+            <p className="text-xs text-muted-foreground mb-4">Swipe horizontally to see more →</p>
+            <div className="overflow-x-scroll max-full scrollbar-top">
+              <div className="max-w-[95vw]">
+                <DataTable columns={columns} data={data.leaderboard} page_length={25} />
+              </div>
+            </div>
           </div>
 
         </div>

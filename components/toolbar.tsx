@@ -34,7 +34,7 @@ export function DataTableToolbar<TData>({
                     onChange={(event) =>
                         table.getColumn("PROJECT")?.setFilterValue(event.target.value)
                     }
-                    className="rounded-none border-black h-8 w-[150px] lg:w-[250px]"
+                    className="rounded-none border-black h-8 w-[150px] lg:w-[250px] hidden md:block"
                 />
                 {table.getColumn("CATEGORY") && (
                     <DataTableFacetedFilter
