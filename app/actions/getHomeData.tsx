@@ -17,14 +17,14 @@ interface LeaderboardEntry {
     CATEGORY: string
 }
 
-interface PaymasterStats {
-    GASLESS_TXNS: number;
-    PAYMASTER_VOLUME: number;
-}
+// interface PaymasterStats {
+//     GASLESS_TXNS: number;
+//     PAYMASTER_VOLUME: number;
+// }
 
 interface HomeData {
     leaderboard: LeaderboardEntry[];
-    total_paymaster_stats: PaymasterStats[];
+    // total_paymaster_stats: PaymasterStats[];
 }
 
 interface HomeDataParams {
