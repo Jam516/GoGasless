@@ -32,7 +32,7 @@ export default async function Home(props: { params: Promise<{ slug: string[] }> 
         <div className="flex flex-col items-center">
 
           <div className="hidden md:block">
-            <DataTable columns={columns} data={data.leaderboard} page_length={25} />
+            <DataTable columns={columns} data={data.leaderboard} page_length={20} />
           </div>
 
           <div className="block md:hidden w-full">
