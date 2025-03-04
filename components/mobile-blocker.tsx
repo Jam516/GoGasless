@@ -25,12 +25,12 @@ export function MobileBlocker() {
         }
 
         // Add resize listener to handle orientation changes
-        const handleResize = () => {
-            setShowDialog(window.innerWidth < 768);
-        };
+        // const handleResize = () => {
+        //     setShowDialog(window.innerWidth < 768);
+        // };
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        // window.addEventListener('resize', handleResize);
+        // return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     return (
