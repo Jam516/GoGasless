@@ -54,7 +54,7 @@ export const categories = [
     },
     {
         value: "derivatives",
-        label: "DEX",
+        label: "Derivatives",
         icon: DoubleArrowRightIcon,
     },
     {
