@@ -9,8 +9,8 @@ export default function Loading() {
             <main className="flex flex-col items-center space-y-12">
                 <MobileBlocker />
                 <div className="flex flex-col gap-4 items-center w-1/2">
-                    <h1 className="text-4xl font-bold leading-none tracking-tight">Discover Gasless Apps</h1>
-                    <p className="font-semibold text-muted-foreground text-center">Gas fees are the biggest barrier to onboarding new crypto users. Use {" "}
+                    <h1 className="text-xl md:text-4xl font-bold leading-none tracking-tight text-center">Discover Gasless Apps</h1>
+                    <p className="text-sm md:text-base font-semibold text-muted-foreground text-center">Gas fees are the biggest barrier to onboarding new crypto users. Use {" "}
                         <a
                             href="https://www.coinbase.com/en-gb/developer-platform/products/paymaster"
                             target="_blank"

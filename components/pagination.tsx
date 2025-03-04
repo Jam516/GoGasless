@@ -24,7 +24,7 @@ export function DataTablePagination<TData>({
 }: DataTablePaginationProps<TData>) {
     return (
         <div className="flex items-center justify-between px-2">
-            <div className="flex-1 text-sm text-muted-foreground">
+            <div className="flex-1 text-sm text-muted-foreground hidden md:block">
                 {table.getFilteredRowModel().rows.length} apps recorded
             </div>
             <div className="flex items-center space-x-6 lg:space-x-8">
