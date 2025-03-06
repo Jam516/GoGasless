@@ -72,7 +72,7 @@ export const columns: ColumnDef<App>[] = [
             return (
                 <Image
                     alt="Logo"
-                    className="aspect-square rounded-md object-cover"
+                    className="aspect-square rounded-md object-cover min-w-[32px] min-h-[32px]"
                     height="64"
                     src={row.getValue("LOGO")}
                     width="64"
