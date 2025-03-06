@@ -37,11 +37,18 @@ export default async function Home(props: { params: Promise<{ slug: string[] }> 
 
           <div className="block md:hidden w-full">
             <p className="text-xs text-muted-foreground mb-4">Swipe horizontally to see more →</p>
-            <div className="overflow-x-scroll max-full scrollbar-top">
-              <div className="max-w-[95vw]">
-                <DataTable columns={columns} data={data.leaderboard} page_length={10} />
-              </div>
+            {/* <div className="overflow-x-scroll max-full scrollbar-top"> */}
+            <div className="max-w-[95vw]">
+              {/* <DataTable columns={columns} data={data.leaderboard} page_length={10} /> */}
+              <DataTable
+                columns={columns}
+                data={data.leaderboard}
+                page_length={10}
+                stickyColumns={true}
+                stickyColumnCount={3}
+              />
             </div>
+            {/* </div> */}
           </div>
 
         </div>

@@ -32,14 +32,18 @@ interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
     page_length: number
+    stickyColumns?: boolean
+    stickyColumnCount?: number
 }
 
 export function DataTable<TData, TValue>({
     columns,
     data,
     page_length,
+    stickyColumns = false,
+    stickyColumnCount = 3,
 }: DataTableProps<TData, TValue>) {
-    // const [sorting, setSorting] = React.useState<SortingState>([])
+    // State for sorting and filters (unchanged)
     const [sorting, setSorting] = React.useState<SortingState>([
         { id: "RN_30D", desc: false }
     ])
@@ -57,6 +61,7 @@ export function DataTable<TData, TValue>({
         GASLESS_TXNS_90D: false,
     })
 
+    // Set up the table as before
     const table = useReactTable({
         data,
         columns,
@@ -81,56 +86,118 @@ export function DataTable<TData, TValue>({
         getFacetedUniqueValues: getFacetedUniqueValues(),
     })
 
+    // Define fixed widths for sticky columns
+    const stickyColumnWidths = React.useMemo(() => [50, 60, 100], []);
+
+    // Pre-calculate column positions once based on the fixed widths
+    const stickyColumnPositions = React.useMemo(() => {
+        const positions: number[] = [];
+        let currentPosition = 0;
+
+        for (let i = 0; i < stickyColumnCount; i++) {
+            positions.push(currentPosition);
+            currentPosition += stickyColumnWidths[i];
+        }
+
+        return positions;
+    }, [stickyColumnWidths, stickyColumnCount]);
+
+    // Extract table content to a separate variable for reuse
+    const tableContent = (
+        <Table>
+            <TableHeader className="bg-gray-100">
+                {table.getHeaderGroups().map((headerGroup) => (
+                    <TableRow key={headerGroup.id}>
+                        {headerGroup.headers.map((header, index) => {
+                            const isSticky = stickyColumns && index < stickyColumnCount;
+
+                            return (
+                                <TableHead
+                                    key={header.id}
+                                    className={isSticky ? "sticky left-0 z-10 bg-gray-100" : ""}
+                                    style={isSticky ? {
+                                        left: `${stickyColumnPositions[index]}px`,
+                                        width: `${stickyColumnWidths[index]}px`,
+                                        minWidth: `${stickyColumnWidths[index]}px`,
+                                        maxWidth: `${stickyColumnWidths[index]}px`
+                                    } : {}}
+                                >
+                                    {header.isPlaceholder
+                                        ? null
+                                        : flexRender(
+                                            header.column.columnDef.header,
+                                            header.getContext()
+                                        )}
+                                </TableHead>
+                            )
+                        })}
+                    </TableRow>
+                ))}
+            </TableHeader>
+            <TableBody>
+                {table.getRowModel().rows?.length ? (
+                    table.getRowModel().rows.map((row) => (
+                        <TableRow
+                            key={row.id}
+                            data-state={row.getIsSelected() && "selected"}
+                        >
+                            {row.getVisibleCells().map((cell, index) => {
+                                const isSticky = stickyColumns && index < stickyColumnCount;
+                                // Add shadow only to the last sticky column
+                                const isLastSticky = isSticky && index === stickyColumnCount - 1;
+
+                                return (
+                                    <TableCell
+                                        key={cell.id}
+                                        className={isSticky ? "sticky left-0 z-10 bg-white" : ""}
+                                        style={{
+                                            ...(isSticky ? {
+                                                left: `${stickyColumnPositions[index]}px`,
+                                                width: `${stickyColumnWidths[index]}px`,
+                                                minWidth: `${stickyColumnWidths[index]}px`,
+                                                maxWidth: `${stickyColumnWidths[index]}px`
+                                            } : {}),
+                                            ...(isLastSticky ? { boxShadow: "4px 0 6px -2px rgba(0,0,0,0.1)" } : {})
+                                        }}
+                                    >
+                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                    </TableCell>
+                                );
+                            })}
+                        </TableRow>
+                    ))
+                ) : (
+                    <TableRow>
+                        <TableCell colSpan={columns.length} className="h-24 text-center">
+                            No results.
+                        </TableCell>
+                    </TableRow>
+                )}
+            </TableBody>
+        </Table>
+    );
+
+    // Conditionally render based on whether we're using sticky columns
+    if (stickyColumns) {
+        return (
+            <div className="space-y-4">
+                <DataTableToolbar table={table} setSorting={setSorting} />
+                <div className="overflow-x-auto">
+                    {tableContent}
+                </div>
+                <DataTablePagination table={table} />
+            </div>
+        );
+    }
+
+    // Default rendering (unchanged from original)
     return (
         <div className="space-y-4">
             <DataTableToolbar table={table} setSorting={setSorting} />
-            <div >
-                <Table>
-                    <TableHeader className="bg-gray-100">
-                        {table.getHeaderGroups().map((headerGroup) => (
-                            <TableRow key={headerGroup.id}>
-                                {headerGroup.headers.map((header) => {
-                                    return (
-                                        <TableHead key={header.id} >
-                                            {header.isPlaceholder
-                                                ? null
-                                                : flexRender(
-                                                    header.column.columnDef.header,
-                                                    header.getContext()
-                                                )}
-                                        </TableHead>
-                                    )
-                                })}
-                            </TableRow>
-                        ))}
-                    </TableHeader>
-                    <TableBody>
-                        {table.getRowModel().rows?.length ? (
-                            table.getRowModel().rows.map((row) => (
-                                <TableRow
-                                    key={row.id}
-                                    data-state={row.getIsSelected() && "selected"}
-                                >
-                                    {row.getVisibleCells().map((cell) => (
-                                        <TableCell key={cell.id}>
-                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                        </TableCell>
-                                    ))}
-                                </TableRow>
-                            ))
-                        ) : (
-                            <TableRow>
-                                <TableCell colSpan={columns.length} className="h-24 text-center">
-                                    No results.
-                                </TableCell>
-                            </TableRow>
-                        )}
-                    </TableBody>
-                </Table>
+            <div>
+                {tableContent}
             </div>
-
             <DataTablePagination table={table} />
-
         </div>
-    )
+    );
 }
