@@ -87,7 +87,7 @@ export function DataTable<TData, TValue>({
     })
 
     // Define fixed widths for sticky columns
-    const stickyColumnWidths = React.useMemo(() => [50, 60, 100], []);
+    const stickyColumnWidths = React.useMemo(() => [30, 60, 120], []);
 
     // Pre-calculate column positions once based on the fixed widths
     const stickyColumnPositions = React.useMemo(() => {
