@@ -182,6 +182,7 @@ export function DataTable<TData, TValue>({
         return (
             <div className="space-y-4">
                 <DataTableToolbar table={table} setSorting={setSorting} />
+                <p className="text-xs text-muted-foreground mb-4  md:hidden">Swipe horizontally to see more →</p>
                 <div className="overflow-x-auto">
                     {tableContent}
                 </div>
@@ -194,6 +195,7 @@ export function DataTable<TData, TValue>({
     return (
         <div className="space-y-4">
             <DataTableToolbar table={table} setSorting={setSorting} />
+            <p className="text-xs text-muted-foreground mb-4 md:hidden">Swipe horizontally to see more →</p>
             <div>
                 {tableContent}
             </div>
